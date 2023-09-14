@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #SlideShow-container{
+        position : relative;
+        max-width: 800px;
+        margin : auto;
+    }
+    .slide{
+        display: none;
+        width : 100%;
+    }
+    img{
+      width: 100%;
+      height: auto;  
+    }
+    .button-container{
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
+<body>
+    <div id = "SlideShow-container">
+        <div class = "slide" ><img scr = "https://images.unsplash.com/photo-1611873189125-324514ebd94e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3BvcnQlMjBiaWtlfGVufDB8fDB8fHww&w=1000&q=80 " alt = ""></div>
+        <div  class = "slide"><img scr = "https://www.bennetts.co.uk/-/media/bikesocial/2021-january-images/top-10-ten-sportsbikes-2021/top-10-ten-sportsbikes-price-spec_thumb.ashx?h=444&la=en&w=740&hash=F9371F7E97540C842733781A1C8856F858B333B9" alt = ""></div>
+        <div  class = "slide"><img src = "https://www.bennetts.co.uk/-/media/bikesocial/2021-january-images/top-10-ten-sportsbikes-2021/top-10-ten-sportsbikes-price-spec_04.ashx?h=493&la=en&w=740&hash=3C0337800F20EDC0A86091D5E2FBDC32EF4F9ABC " alt = ""></div>
+        <div  class = "slide"><img src = "https://www.shutterstock.com/shutterstock/photos/1589761507/display_1500/stock-photo--d-red-super-sports-motorbike-on-white-isolated-background-d-illustration-1589761507.jpg " alt = ""></div>
+        <div  class = "slide"><img src = "https://e0.pxfuel.com/wallpapers/830/742/desktop-wallpaper-red-motorcycle-png-stickers-background-red-motorbike-thumbnail.jpg " alt = ""></div>
+        <div  class = "slide"><img src = "https://www.webbikeworld.com/wp-content/uploads/2021/04/Segway-2.jpg " alt = ""></div>
+        <div  class = "slide"><img src = "https://e7.pngegg.com/pngimages/27/82/png-clipart-black-and-gray-sports-bike-ducati-museum-motorcycle-ducati-1098-ducati-monster-ducati-1098-sport-motorcycle-bike-exhaust-system-car.png " alt = ""></div>
+        <div  class = "slide"><img src = "https://images.pexels.com/photos/7589890/pexels-photo-7589890.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500 " alt = ""></div>
+        <div  class = "slide"><img src ="https://www.financialexpress.com/wp-content/uploads/2023/02/piaggio-bike-1.jpg " alt = ""></div>
+        <div  class = "slide"><img src ="https://w0.peakpx.com/wallpaper/354/586/HD-wallpaper-ducati-superleggera-v4-2020-front-view-exterior-sport-bike-new-red-black-superleggera-v4-italian-sports-bikes-ducati.jpg " alt = ""></div>
+        <div class = "slide"><img src = "https://imgeng.jagran.com/images/2022/oct/24_09_2019-bmw-r-1250-r_196085801667210498936.jpg " alt = ""></div>
+        <div class = "slide" ><img src = "https://wallpaperaccess.com/full/1118102.jpg " alt = ""></div>
+        <div class = "slide" ><img src = "https://wallpapercave.com/wp/wp2007758.jpg " alt = ""></div>
+        <div class = "slide" ><img src = "https://www.motorbeam.com/wp-content/uploads/Norton-V4CR-Prototype-1200x900.jpg " alt = ""></div>
+        <div class = "slide"><img src = "https://kalingatv.com/wp-content/uploads/2023/08/QJ-Motor-OAO-Pro-revealed.jpg " alt = ""></div>
+        <div class = "slide" ><img src = "https://images.91wheels.com/news/wp-content/uploads/2022/07/BeFunky-collage-2-3.jpg?w=1080&q=65 " alt = ""></div>
+        <div class = "slide" ><img src = "https://media.zigcdn.com/media/model/2020/Feb/head-light-1337020869_600x400.jpg " alt = ""></div>
+        <div class = "slide"><img src = "https://w.forfun.com/fetch/7f/7fe5043348ef5be2f79666c8319e068c.jpeg " alt = ""></div>
+        <div class = "slide" ><img src = "https://i.pinimg.com/1200x/c8/6a/86/c86a86d93adc0716dd72b1aa507c4a5d.jpg " alt = ""></div>
+        <div class = "slide"><img src = "https://static.langimg.com/photo/imgsize-129304,msid-95335690/navbharat-times.jpg " alt = ""></div>
+        <div class = "slide"><img src = "https://auto5.vn/files/hoanghai98/2021/07/09/s%201-111918.png " alt = ""></div>
+        <div class = "slide"><img src = "https://imgctcf.aeplcdn.com/thumbs/p-nc-p-s500-ver4/images/cars/KTM-RC390.jpg?q=75 " alt = ""></div>
+    </div>
+    <button id = "startStopButton" onclick = "startStopSlideshow()">Start-Slide show</button>
+
+    <div class = "button-container">
+        <button onclick = "PreviousSlide()">Previous</button>
+        <button onclick = "nextSlide()">Next</button>
+    </div>
+    <script>
+        let currentIndex = 0;
+        let isSlideshowRunning = false;
+        let slides = document.querySelectorAll('.slide');
+        let startStopbutton = document.getElementById('#startStopButton')
+
+        function startStopSlideshow(){
+            if(isSlideshowRunning){
+                stopSlideshow()
+            }
+            else{
+                startSlideshow()
+            }
+        }
+
+        function startSlideshow(){
+            isSlideshowRunning = true;
+            startStopbutton.textContent = 'Stop - SlideShow'
+            nextSlide()
+        }
+
+        function stopSlideshow(){
+            isSlideshowRunning = false;
+            startStopbutton.textContent = 'Start - SlideShow'
+            clearInterval(slideShowInterval)
+        }
+
+        function nextSlide(){
+
+            if(!isSlideshowRunning){
+                return;
+            }
+            slides[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].style.display = 'block';
+            clearInterval(slideShowInterval)
+            slideShowInterval = setInterval(nextSlide,3000)
+        }
+
+        function PreviousSlide(){
+            if(!isSlideshowRunning){
+                return;
+            }
+            slides[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            slides[currentIndex].style.display = 'block';
+            clearInterval(slideShowInterval);
+            slideShowInterval = setInterval(nextSlide(),3000)
+        }
+        let slideShowInterval = setInterval(nextSlide,3000)
+
+        startStopbutton.addEventListener('click',startStopSlideshow);
+    </script>
+</body>
+</html>

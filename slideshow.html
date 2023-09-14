@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide Show</title>
+</head>
+<style>
+ #slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+</style>
+<body>
+    <div id = "slideshow-container">
+     <div class = "slide"><img src="https://carwow-uk-wp-3.imgix.net/18015-MC20BluInfinito-scaled-e1666008987698.jpg " alt=""/></div>
+     <div class = "slide"><img src="https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?cs=srgb&dl=pexels-yurii-hlei-1545743.jpg&fm=jpg " alt=""></div>
+     <div class = "slide"><img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt=""></div>
+     <div class = "slide"><img src="https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/images/car-reviews/first-drives/legacy/rolls_royce_phantom_top_10.jpg?itok=XjL9f1tx " alt=""></div>
+     <div class = "slide"><img src=" https://img.etimg.com/thumb/width-1200,height-900,imgsize-33204,resizemode-75,msid-96191686/industry/auto/auto-news/super-luxury-cars-clock-50-growth-highest-ever-in-india.jpg" alt=""></div>
+     <div class = "slide"><img src="https://www.topgear.com/sites/default/files/2022/07/6_0.jpg" alt=""></div>
+     <div class = "slide"><img src="https://stimg.cardekho.com/images/carexteriorimages/630x420/BMW/Z4/10183/1685003672330/front-left-side-47.jpg?impolicy=resize&imwidth=420" alt=""></div>
+     <div class = "slide"><img src="https://carstreetindia.com/blogs/wp-content/uploads/2022/09/25-1024x683.jpg " alt=""></div>
+     <div class = "slide"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80 " alt=""></div>
+     <div class = "slide" ><img src="https://images.unsplash.com/photo-1552642762-f55d06580015?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dmVoaWNsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60 " alt=""></div>
+     <div class = "slide"><img src="https://images.unsplash.com/photo-1547143379-3374bbefa14a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1897&q=80 " alt=""></div>
+     <div class = "slide"><img src="https://plus.unsplash.com/premium_photo-1663047351997-c3ba1fda32b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt=""></div>
+     <div class = "slide"><img src=" https://images.unsplash.com/photo-1681276159290-29989388a728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80" alt=""></div>
+     <div class = "slide"><img src="https://images.unsplash.com/photo-1512668023544-749964af467a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80 " alt=""></div>
+     <div class = "slide"><img src="https://images.unsplash.com/photo-1558486821-98eb591961e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2059&q=80 " alt=""></div>
+     <div class = "slide"><img src="https://images.unsplash.com/photo-1584809394311-364392a5011b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1894&q=80 " alt=""></div>
+     <div class = "slide"><img src="https://images.unsplash.com/photo-1602033960165-9cea185953eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80 " alt=""></div> 
+
+     <button id ="startStopButton" onclick = "startStopSlideshow()">Start Slideshow</button>
+     <div class="button-container">
+        <button onclick="previousSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+    </div>
+</body>
+<script>
+let currentIndex = 0;
+let isSlideshowRunning = false;
+let slides = document.querySelectorAll(".slide")
+let startStopButton = document.getElementById("#startStopButton")
+
+function startStopSlideshow(){
+    if(isSlideshowRunning){
+        stopSlideshow()
+    }
+    else{
+        startSlideshow()
+    }
+}
+
+function startSlideshow(){
+isSlideshowRunning = true;
+startStopButton.textContent = 'Stop Slideshow';
+nextSlide();
+}
+
+function stopSlideshow(){
+    isSlideshowRunning = false;
+startStopButton.textContent = 'Start slideshow';
+clearInterval(slideshowInterval);
+}
+
+function nextSlide(){
+    if(!isSlideshowRunning){
+        return;
+    }
+    slides[currentIndex].style.display = 'none';
+    currentIndex = (currentIndex + 1) % slides.length;
+    slides[currentIndex].style.display = 'block';
+    clearInterval(slideshowInterval);
+    slideshowInterval = setInterval(nextSlide , 2000)
+}
+function previousSlide() {
+            if (!isSlideshowRunning) {
+                return;
+            }
+            slides[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            slides[currentIndex].style.display = 'block';
+            clearInterval(slideshowInterval);
+            slideshowInterval = setInterval(nextSlide, 2000); // Change slide every 2 seconds
+        }
+
+        let slideshowInterval = setInterval(nextSlide, 2000); // Start slideshow automatically
+
+        startStopButton.addEventListener('click', startStopSlideshow);
+</script>
+</html>

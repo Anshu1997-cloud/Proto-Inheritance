@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function IndiaSpaceProgram(propulsionEngine, LaunchingVehicle,orbit,Frequency){
+
+        this.propulsionEngine = propulsionEngine;
+        this.LaunchingVehicle = LaunchingVehicle;
+        this.orbit = orbit;
+        this.Frequency = Frequency;
+       } 
+
+       IndiaSpaceProgram.prototype.speed = function(){
+        console.log("The rocket is launched at a speed of light")
+       }
+
+       IndiaSpaceProgram.prototype.gravity = function(){
+        console.log("The rocket is launched at a escape velocity")
+       }
+      let Program = new IndiaSpaceProgram("Cryogenic V-30" , "Rslv", "polar-Orbit" , 1000)
+      console.log(Program)
+      Program.speed()
+      
+       function AmericanSpaceProgram(propulsionEngine, LaunchingVehicle,orbit,Frequency,cost,efficiency){
+
+        IndiaSpaceProgram.call(this,propulsionEngine, LaunchingVehicle,orbit,Frequency)
+        this.cost = cost;
+        this.efficiency = efficiency;
+       }
+
+       AmericanSpaceProgram.prototype.expence = function(){
+        console.log("The rocket is much cheaper as compare to other countries")
+       }
+
+       Object.setPrototypeOf(AmericanSpaceProgram.prototype,IndiaSpaceProgram.prototype)
+       let Program1 = new AmericanSpaceProgram("Cryogenic V-20","Pslv" , "lunar-orbit" , 1000, 100000,"High")
+       console.log(Program1)
+       Program1.expence()
+    </script>
+</body>
+</html>

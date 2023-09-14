@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #slideshow-container{
+        position: relative;
+            max-width: 800px;
+            margin: auto;
+    }
+    .slide{
+        display: none;
+            width: 100%;
+    }
+    img{
+        width: 100%;
+            height: auto;
+    }
+    #button-container{
+        text-align: center;
+            margin-top: 10px
+    }
+</style>
+<body>
+    <div id = "slideshow-container">
+        <div class = "slide"><img src=" https://t4.ftcdn.net/jpg/05/47/97/81/360_F_547978128_vqEEUYBr1vcAwfRAqReZXTYtyawpgLcC.jpg" alt = " "></div>
+        <div class = "slide"><img src="https://wallpaperaccess.com/full/5012989.jpg " alt=""></div>
+        <div class = "slide"><img src="https://cdn.wallpapersafari.com/73/79/KS93XP.jpg " alt=""></div>
+        <div class = "slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc0AolU4rKgiR6CuJLrE8VyxyUsCTOsjq2vZ9NdZB4eYjicLs7ScdvwJQuNzysFeSDocM&usqp=CAU " alt=""></div>
+        <div class = "slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpQYeOFht5hx9eNHwhhyAFxoVI_1KALixhei_2YvOKHeElz25EPNtowiaP-2YSFyj_i4w&usqp=CAU " alt=""></div>
+        <div class = "slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-y751fqBah7T2HIBZPDsNsuiGKy5KBTFKdVp6zQwCJNg07KgihwIr_d0VOr8YyquHoRo&usqp=CAU " alt=""></div>
+        <div class = "slide"><img src="https://wallpaperaccess.com/full/5744807.jpg " alt=""></div>
+        <div class = "slide"><img src="https://wallpaperaccess.com/full/2601237.jpg " alt=""></div>
+        <div class = "slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoW97TS8v9PVJj9UCzaINcp84NfoXETc8i4Vzy7B6kJ7r7lvfkyk1krbnQME8_Ahwg41c&usqp=CAU " alt=""></div>
+        <div class = "slide"><img src="https://wallpaperaccess.com/full/2405348.jpg " alt=""></div>
+        <div class = "slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBfRmEtEAihUWRyGAADjOEpjiAGrZ2o8u5A-dz6c4aSkRI1MtQ2t6L8WiI9nt-OUCPu98&usqp=CAU " alt=""></div>
+        <div class = "slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFGyjYUmM5ZI3_7t5j0XZyaDdeWQELo46LavB5Z3TwZrtkzXHWfU1GKG4QzLz4QwOIJVE&usqp=CAU " alt=""></div>
+        <div class = "slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4j0n3WmgBzsWvzEDMqFt_tw64lygQvt3eHQ4RIDUvBe75C1RD-q4SFTi7cDi9b1nRDhE&usqp=CAU " alt=""></div>
+        <div class = "slide"><img src="https://cdn.wallpapersafari.com/73/79/KS93XP.jpg " alt=""></div>
+        <div class = "slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqBu5ACSLYmYmMw_lRTK-l52Q7Fxi0euDDrXSHAjnIfwQmy_SaJ_IgyO4gYjRBJaBQ9J4&usqp=CAU " alt=""></div>
+        <div class = "slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD6zESzyPe87IaLWKY12VgbCdYhrmR9R0X7s6IgKTmgqmnEANL6XLDwwrY2HrVve_ewl0&usqp=CAU " alt=""></div>
+        <div class = "slide"><img src="https://i.pinimg.com/originals/66/b0/f9/66b0f9b9f7c9ffe2749d619b5c6f1df2.jpg " alt=""></div>
+        <div class = "slide"><img src="https://i.pinimg.com/736x/79/17/27/791727fa25322c1b34da805ea4b985f1.jpg " alt=""></div>
+        <div class = "slide"><img src="https://wallpaperaccess.com/full/380067.jpg " alt=""></div>
+        <div class = "slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNN8GDX0MdhI-N5RPnO0rzeTRvifEovgw8AV-O-9u3ik3y_J4SLsJjUPs4-ES8-5HsaP8&usqp=CAU " alt=""></div>
+        <div class = "slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt2QvbZnc9fEqStDlFKeiX3rp10Rm3Aa9J7zCTWfmi2ri21uhTKKfgzgHxfzEdemCnsqo&usqp=CAU " alt=""></div>
+    </div>
+    <button id=" startStopButton" onclick = "startStopSlideshow()">StartSlideshow</button>
+    <div id = "button-container">
+      <button onclick = "nextSlide()">Next</button>
+      <button onclick = "PreviousSlide()">Previous</button>  
+    </div>
+</body>
+<script>
+  let currentIndex = 0;
+let isSlideshowRunning = false;
+let slides = document.querySelectorAll(".slide")
+let startStopButton = document.getElementById("#startStopButton")
+
+function startStopSlideshow(){
+    if(isSlideshowRunning){
+        stopSlideshow()
+    }
+    else{
+        startSlideshow()
+    }
+}
+
+function startSlideshow(){
+isSlideshowRunning = true;
+startStopButton.textContent = 'Stop Slideshow';
+nextSlide();
+}
+
+function stopSlideshow(){
+    isSlideshowRunning = false;
+startStopButton.textContent = 'Start slideshow';
+clearInterval(slideshowInterval);
+}
+
+function nextSlide(){
+    if(!isSlideshowRunning){
+        return;
+    }
+    slides[currentIndex].style.display = 'none';
+    currentIndex = (currentIndex + 1) % slides.length;
+    slides[currentIndex].style.display = 'block';
+    clearInterval(slideshowInterval);
+    slideshowInterval = setInterval(nextSlide , 2000)
+}
+function previousSlide() {
+            if (!isSlideshowRunning) {
+                return;
+            }
+            slides[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            slides[currentIndex].style.display = 'block';
+            clearInterval(slideshowInterval);
+            slideshowInterval = setInterval(nextSlide, 2000); // Change slide every 2 seconds
+        }
+
+        let slideshowInterval = setInterval(nextSlide, 2000); // Start slideshow automatically
+
+        startStopButton.addEventListener('click', startStopSlideshow);
+</script>
+</html>
