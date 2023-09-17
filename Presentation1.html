@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* .container{
+        position: relative;
+            max-width: 800px;
+            margin: auto
+    }
+    .slide{
+        display: none;
+            width: 100%;
+    }
+    img{
+        width: 100%;
+            height: auto;
+    } */
+</style>
+<body>
+    <div class ="container">
+        <div id = "slideshow">
+              <img src="https://www.archives.gov/files/research/still-pictures/ww2-111-sc-407101.jpeg " alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOmc8GpfwgMk0_RCMs5lzi8bEMIZKMAbe0qsWnsgpcBrPGX0lI91GahwJlMOhRngYMBkc&usqp=CAU " alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf4Ts9yft__DWGwBgZNGiJUlk66QBDhr0_0NOHfFbLQWo5qsrJfNEhkJFivPXQfzcbkVg&usqp=CAU " alt="">
+             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROvDDGTZMURD3R49q_yDfkVtkXnhVhu6PwfP4G7BvbdnszGSKT-HKqXaTE2slLqp6NMj0&usqp=CAU " alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLs_QkEM0yKiExkAHBtBiklO0ftlT-XD-2ys8Klf5oj05-GP8mdHOHPrTOin_geWz1cAE&usqp=CAU " alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLs_QkEM0yKiExkAHBtBiklO0ftlT-XD-2ys8Klf5oj05-GP8mdHOHPrTOin_geWz1cAE&usqp=CAU " alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLs_QkEM0yKiExkAHBtBiklO0ftlT-XD-2ys8Klf5oj05-GP8mdHOHPrTOin_geWz1cAE&usqp=CAU  " alt="">
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLs_QkEM0yKiExkAHBtBiklO0ftlT-XD-2ys8Klf5oj05-GP8mdHOHPrTOin_geWz1cAE&usqp=CAU " alt="">
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLs_QkEM0yKiExkAHBtBiklO0ftlT-XD-2ys8Klf5oj05-GP8mdHOHPrTOin_geWz1cAE&usqp=CAU " alt="">
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLs_QkEM0yKiExkAHBtBiklO0ftlT-XD-2ys8Klf5oj05-GP8mdHOHPrTOin_geWz1cAE&usqp=CAU " alt="">
+   </div> 
+   <button onclick = "toggleSlideshow()">Start/Stop</button>
+   <button onclick = "nextSlide()">Next</button>
+   <button onclick = "PreviousSlide()">Previous</button>
+   </div>
+</body>
+<script>
+    let slides = document.querySelectorAll('#slideshow > img');
+    let slideIndex = 0;
+    let slideInterval
+
+    function showSlide(index){
+
+       slides.forEach((slide,i) =>{
+           if(i == index){
+            slide.style.display = 'block';
+           }
+           else{
+            slide.style.display = 'none'
+           }
+        })
+    }
+      //Automation Part//
+
+       function startSlideshow(){
+            
+        slideInterval = setInterval(()=>{
+           slideIndex = (slideIndex + 1) % slides.length;
+            showSlide(slideIndex);
+            console.log(slideIndex);
+        },2000)
+       }
+
+       function stopSlideshow(){
+        clearInterval(slideInterval)
+       }
+       function toggleSlideshow(){
+        if(slideInterval){
+            stopSlideshow()
+         slideInterval = null;
+        }
+        else{
+            startSlideshow()
+        }
+       }
+
+       function nextSlide(){
+        stopSlideshow();
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlide(slideIndex);
+       }
+
+       function PreviousSlide(){
+
+        stopSlideshow();
+        slideIndex = (slideIndex -1+slides.length) % slides.length;
+        showSlide(slideIndex)
+       }
+    showSlide(slideIndex)
+
+</script>
+</html>
