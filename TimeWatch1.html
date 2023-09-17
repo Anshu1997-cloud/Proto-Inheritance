@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "timer">00:00:00</div>
+    <div>
+        <input type = "number" id = "hours" placeholder = "hours">
+        <input type = "number" id = "minutes" placeholoder = "minutes">
+        <input type = "number" id = "second" placeholder="second">
+        <button id = "start">start</button>
+        <button id = "stop">stop</button>
+        <button id = "reset">reset</button>
+    </div>
+</body>
+<script >
+    let TimerDisplay = document.getElementById('timer');
+    let hoursInput = document.getElementById('hours');
+    let minutesInput = document.getElementById('minutes');
+    let secondInput = document.getElementById('second');
+    let startButton = document.getElementById('start');
+    let pauseButton = document.getElementById('stop');
+    let resetButton = document.getElementById('reset');
+    let timerInterval;
+    let totalSecond = 0;
+
+function startTimer (){
+
+     totalSecond =  (parseInt(hoursInput.Input) || 0) * 3600 + (parseInt(minutesInput.value) || 0) * 60 + (parseInt(secondInput.value) || 0);
+     timerInterval = setInterval(updateTimer,2000);
+     startButton.disabled = true;
+     pauseButton.disabled = false;
+     resetButton.disabled = false;
+}
+function pauseTimer(){
+    clearInterval(timerInterval);
+    startButton.disabled = false;
+    pauseButton.disabled = true;
+}
+function resetTimer(){
+    clearInterval(timerInterval);
+    TimerDisplay.textContent = "00:00:00";
+    hoursInput.value = "";
+    minutesInput.value = "";
+    secondInput.value = "";
+    startButton.disabled = false;
+    pauseButton.disabled = true;
+    resetButton.diasbled = true;
+}
+function updateTimer(){
+    if(totalSecond <=0){
+        clearInterval(timerInterval);
+        TimerDisplay.textContent = "00:00:00";
+         startButton.disabled = false;
+        pauseButton.disabled = true;
+        resetButton.diasbled = true;
+    }
+    else{
+        const hours = Math.floor(totalSecond/3600);
+        const minutes = Math.floor((totalSecond %3600 )/ 60);
+        const seconds = totalSecond % 60;
+        TimerDisplay.textContent = `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+        totalSecond--;
+    }
+}
+    startButton.addEventListener("click",startTimer);
+    pauseButton.addEventListener("click",pauseTimer);
+    resetButton.addEventListener("click",resetTimer);
+</script>
+</html>
